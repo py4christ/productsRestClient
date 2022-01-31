@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Product</title>
+</head>
+<body>
+	<div style="background-color:rgb(200,150,250); padding:10px; margin:20px;" >
+	
+	<h1> Customer information </h1>
+	  
+	<form th:action="@{/addOrder/{cartId} (cartId=${cartId}) }" method="post">
+		<input type="text" name="inputName" placeholder="Enter Name" required />
+		<input type="submit" />
+	</form>
+
+	</div>
+</body>
+	
+	
+</html>

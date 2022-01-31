@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart</title>
+</head>
+<body>
+		
+	
+	
+		<div style="background-color:rgb(150,150,150); padding:10px; margin:20px;)">
+			<div th:if="${SavedOrder} != null" style="color: green;)">
+				<h2  >
+					Congratulations <span th:text="${SavedOrder.customerName}"></span>! <br> Your order is being Processed <br><br> Order Ref: <span th:text="${SavedOrder.id}"></span>
+				</h2>
+				<p> <a th:href="@{/}" >Back To Shopping</a> </p>
+			</div>
+			
+			<div th:if="${SavedOrder} == null" style="color: red;">
+				<h2  >
+					Oops! Please go back and enter valid information
+				</h2>
+				<!-- <p> <a th:href="@{/carts/{cartId} (cartId=${cartId}) }" >Back To Cart</a> </p>-->
+				<p> <a th:href="@{/}" >Back To Shopping</a> </p>
+			</div>
+			
+		</div>
+		
+
+</body>
+
+	
+</html>

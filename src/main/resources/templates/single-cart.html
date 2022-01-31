@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart</title>
+</head>
+<body>
+	
+	
+	<div style="background-color:rgb(250,200,150); padding:10px; margin:20px;)">
+		<h1> Your Cart's Details</h1>
+		<p> <a th:href="@{/{cartId} (cartId=${cart.id})}" >Back To Shopping</a> </p>
+	</div>
+	
+	<div style="background-color:rgb(250,200,150); padding:10px; margin:20px;)">
+		<h2> CART ID: <span th:text="*{id}"></span> </h2>
+		<p> <a th:if="${cart.items.size()}!= 0" th:href="@{ /clearAllCartItems/{cartId} (cartId=${cart.id})}" >Clear All Cart Items</a> </p>
+		<hr><hr>
+		<br>
+	
+	<div th:object="${cart}">
+		
+		<div th:each="item: *{items}">
+			<p> ITEM ID: <span th:text="${item.id}"></span> </p>
+			<p> ITEM NAME: <span th:text="${item.name}"></span> </p>
+			<p> ITEM PRICE: <span th:text="${item.price}"></span> </p>
+			<a th:if="${cart.items.size()}!= 0" th:href="@{/removeCartItem/{productIdAndCartId} (productIdAndCartId=${item.id} +'/'+ ${cart.id})}" >Remove Item</a>
+			<hr>
+		</div>
+		
+		<h2> TOTAL PRICE($): <span th:text="*{totalPrice}"></span> </h2>
+		<a th:if="${cart.items.size()}!= 0" th:href="@{/custmerInfo/{cartId} (cartId=${cart.id})}" ><h1>Check Out</h1></a>
+		
+	</div>
+	</div>
+
+</body>
+
+	
+</html>

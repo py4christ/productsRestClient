@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products</title>
+</head>
+<body>
+	<div style="background-color:rgb(70,100,150); padding:10px;)" >
+		<div style="background-color:rgb(150,200,250); padding:10px; margin:20px;)">	
+			<h1> Available Products</h1>
+			<!-- 
+			<div style="float: right; margin-top:-50px;">
+				<form th:action="@{/productByName}">
+					<input type="text" name="name" placeHolder="search produt name" required size="50" />
+					<button type="submit" >Filter</button>
+			  </form>
+			  <a style="padding-top:50px;") th:href="@{/}">View All Products</a>
+			</div>
+			 -->
+			
+			<p th:if="${cartId}!= 0" > <a th:href="@{/carts/{cartId} (cartId=${cartId}) }" >View Cart</a> </p>
+		</div>
+		<div style="background-color:rgb(150,200,250); padding:10px; margin:20px;)">
+		<div th:each="product: ${products}">
+			<p> ID: <span th:text="${product.id}"></span> </p>
+			<p> NAME: <span th:text="${product.name}"></span> </p>
+			<p> PRICE: <span th:text="${product.price}"></span> </p>
+			<p> <a th:href="@{/addCartItem/{productIdAndCartId} (productIdAndCartId=${product.id} +'/'+ ${cartId})}" >Add To Cart</a> </p>
+			<hr>
+		</div>
+		</div>
+		</div>
+	
+	</div>
+
+</body>
+	
+	
+</html>

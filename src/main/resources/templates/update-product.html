@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update</title>
+</head>
+<body>
+
+</body>
+	
+	<h1 > Update Product </h1>
+	<form th:action="@{/saveUpdate }" th:object="${product}" method="post">
+	 	<input type="text" placeholder="ISBN-10" th:field="*{id}" readonly />
+		<input type="text" placeholder="Title" th:field="*{name}" required />
+		<input type="text" placeholder="Author" th:field="*{price}" required />
+		<input type="submit" />
+	</form>
+	
+</html>
